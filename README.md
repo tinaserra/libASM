@@ -1,5 +1,5 @@
 # libASM
-Writing a lib in x86 assembly (intel flavour)
+Writing a lib in x64 assembly (intel flavour)
 
 ## INTRODUCTION 🤓
 
