@@ -1,10 +1,14 @@
 # libASM
+<<<<<<< HEAD
 
 Writing a lib in x86 assembly (intel flavour)
+=======
+Writing a lib in x64 assembly (intel flavour)
+>>>>>>> 8c3e8945d60196a191a61664163be1c4478a4266
 
 ## INTRODUCTION 🤓
 
-Sujet -> [EN](https://github.com/tinaserra/Cub3D/blob/master/links/cub3d_en.pdf) | [FR](https://github.com/tinaserra/Cub3D/blob/master/links/cube3d_fr.pdf)
+Sujet -> [EN](https://github.com/tinaserra/libASM/blob/master/links/libasm_en.pdf) | [FR](https://github.com/tinaserra/libASM/blob/master/links/libasm_fr.pdf)
 
 ### L'assembleur, c'est quoi?
 
@@ -58,5 +62,9 @@ section .text
 ### Instructions
 
 ## USEFUL LINKS 🤙🏼
+<<<<<<< HEAD
 
 * [Raycasting tutorial video](https://courses.pikuma.com/courses/take/raycasting/lessons/7485598-introduction-and-learning-outcomes)
+=======
+* [anselm](https://github.com/grumbach/libftASM)
+>>>>>>> 8c3e8945d60196a191a61664163be1c4478a4266
