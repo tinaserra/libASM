@@ -85,11 +85,24 @@ ip → Eip → rip
 Une instruction est exécutée lors de l'exécution. Une instruction x86 peut avoir de zéro à trois opérandes.</br>
 Voir la [liste complète des instructions x86](https://c9x.me/x86/)
 
-**Quelques instructions notables**
+#### Quelques instructions notables
 
-mov : met une valeur dans un registre.
-db  : déclare un byte (octet).
-lea : met l'addresse d'une variable dans la destination.
+
+|Instruction|Black Sheep Wall|
+| :--- | :--- |
+|```NOP```|L'instruction NOP à un octet est couramment utilisée pour aligner la mémoire pour accélérer le saut car il est plus rapide de sauter en utilisant des puissances de 2|
+|```push```|Met une **valeur** contenue dans un registre sur la pile et décrémente automatiquement ```rsp``` de **sizeof (valeur)**|
+|```pop```|Pops **value** off the stack into a register and automatically increments ```rsp``` by **sizeof(value)** |
+|```syscall```|Does wicked Kernel Magic|
+|```call```|Pushes ```rip``` onto the stack and jumps to the ```destination_operand```|
+|```leave```|Releases the current stack frame. Moves ```rbp``` to ```rsp``` and pops ```rbp``` from the stack|
+|```ret```|Pops the ```rip``` saved by ```call``` back in ```rip```|
+|```mov```|Move the value of the ```source operand``` in ```destination operand```|
+|```lea```|Load Effective Address of the ```source operand``` in the ```destination operand```. The ```source operand``` is a memory address (offset part) specified with one of the processors addressing modes, the ```destination opera    nd``` is a general-purpose register|
+|```jump```|Loads the ```destination operand``` in ```rip```, the ```destination operand``` specifies the address of the instruction being jumped to. This operand can be an immediate value, a general-purpose register, or a memory loca    tion|
+|```and```|Performs the following operation: ```destination operand = destination operand & source operand``` and sets some flags|
+|```test```|Is basically an ```and``` instruction that does not alter the ```destination operand```|
+|```rep```|Repeat String Operations : repeats a string instruction the number of times specified in the count register. ```rep``` (repeat), ```repe``` (repeat while equal), ```repne``` (repeat while not equal), ```repz``` (repeat whil    e zero), and ```repnz``` (repeat while not zero)|
 
 ## LA STACK 👀
 
