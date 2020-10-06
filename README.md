@@ -10,7 +10,7 @@ Sujet → [EN](https://github.com/tinaserra/libASM/blob/master/links/libasm_en.p
 
 C'est un ensemble de langages de programmation qui sont spécifiques à l'architechture de notre processeur. On peut dire qu'il y a autant d'assembleur que d'architechtures.
 
-```
+```js
 Expmples : mips - armv7 - x86 - x86-64 ou x64
 ```
 
@@ -62,7 +62,7 @@ Les **registres** sont des petits éléments de stockage, utilisés lors d'un pr
 En c, faire un ```int a = 0; a = 1;``` veut dire mettre ```1``` dans la variable ```a```.</br>
 En asm, cela revient à prendre une variable non initialisée, auparavant mettre une valeur dans un registre, puis mettre ce registre dans la variable.
 
-**Shéma d'un registre**
+#### Shéma d'un registre
 
 ![register](./links/shema_rax.png)
 
@@ -87,22 +87,25 @@ Voir la [liste complète des instructions x86](https://c9x.me/x86/)
 
 #### Quelques instructions notables
 
+```s
+instruction destination, source, last
+```
 
 |Instruction|Black Sheep Wall|
 | :--- | :--- |
 |```NOP```|L'instruction NOP à un octet est couramment utilisée pour aligner la mémoire pour accélérer le saut car il est plus rapide de sauter en utilisant des puissances de 2|
-|```push```|Met une **valeur** contenue dans un registre sur la pile et décrémente automatiquement ```rsp``` de **sizeof (valeur)**|
-|```pop```|Pops **value** off the stack into a register and automatically increments ```rsp``` by **sizeof(value)** |
-|```syscall```|Does wicked Kernel Magic|
-|```call```|Pushes ```rip``` onto the stack and jumps to the ```destination_operand```|
-|```leave```|Releases the current stack frame. Moves ```rbp``` to ```rsp``` and pops ```rbp``` from the stack|
-|```ret```|Pops the ```rip``` saved by ```call``` back in ```rip```|
-|```mov```|Move the value of the ```source operand``` in ```destination operand```|
-|```lea```|Load Effective Address of the ```source operand``` in the ```destination operand```. The ```source operand``` is a memory address (offset part) specified with one of the processors addressing modes, the ```destination opera    nd``` is a general-purpose register|
-|```jump```|Loads the ```destination operand``` in ```rip```, the ```destination operand``` specifies the address of the instruction being jumped to. This operand can be an immediate value, a general-purpose register, or a memory loca    tion|
-|```and```|Performs the following operation: ```destination operand = destination operand & source operand``` and sets some flags|
-|```test```|Is basically an ```and``` instruction that does not alter the ```destination operand```|
-|```rep```|Repeat String Operations : repeats a string instruction the number of times specified in the count register. ```rep``` (repeat), ```repe``` (repeat while equal), ```repne``` (repeat while not equal), ```repz``` (repeat whil    e zero), and ```repnz``` (repeat while not zero)|
+|```push```|Met une **valeur** contenue dans un registre sur la stack et décrémente automatiquement ```rsp``` de **sizeof (valeur)**|
+|```pop```|Éjecte **valeur** de la stack dans un registre et incrémente automatiquement ```rsp``` de **sizeof (valeur)**|
+|```syscall```|Fais de la puissante magie avec le kernel|
+|```call```|Met ```rip``` sur la stack et va a ```destination```|
+|```leave```|Libère le stack frame actuel. Déplace ```rbp``` vers ```rsp``` et fait apparaître ```rbp``` de la stack|
+|```ret```|Renvoie le ```rip``` enregistré par ```call``` dans ```rip```|
+|```mov```|Déplace la valeur de ```source``` dans ```destination```|
+|```lea```|Charge l'adresse effective de ```source``` dans ```destination```. ```source``` est une adresse mémoire (partie offset) spécifiée avec l'un des modes d'adressage des processeurs, ```destination``` est un registre à usage général|
+|```jump```|Charge le ```destination``` dans ```rip```, ```destination``` spécifie l'adresse de l'instruction à laquelle le saut est effectué. ```destination``` peut être une valeur immédiate, un registre à usage général ou un emplacement mémoire|
+|```and```|Effectue l'opération suivante: ```destination = destination & source``` et définit quelques indicateurs|
+|```test```|Essentiellement une instruction ```&``` qui ne modifie pas ```destination```|
+|```rep```|Répète les opérations de chaîne: répète une instruction de chaîne le nombre de fois spécifié dans le registre de comptage ```rcx```. ```rep``` (répéter), ```repe``` (répéter tant que ==), ```repne``` (répéter tant que !=), ```repz``` (répéter jusqu'à zéro ), et ```repnz``` (répéter tant que != 0)|
 
 ## LA STACK 👀
 
