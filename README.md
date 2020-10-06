@@ -1,10 +1,6 @@
 # libASM
-<<<<<<< HEAD
 
-Writing a lib in x86 assembly (intel flavour)
-=======
 Writing a lib in x64 assembly (intel flavour)
->>>>>>> 8c3e8945d60196a191a61664163be1c4478a4266
 
 ## INTRODUCTION 🤓
 
@@ -62,9 +58,5 @@ section .text
 ### Instructions
 
 ## USEFUL LINKS 🤙🏼
-<<<<<<< HEAD
 
-* [Raycasting tutorial video](https://courses.pikuma.com/courses/take/raycasting/lessons/7485598-introduction-and-learning-outcomes)
-=======
 * [anselm](https://github.com/grumbach/libftASM)
->>>>>>> 8c3e8945d60196a191a61664163be1c4478a4266
