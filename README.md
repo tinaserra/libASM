@@ -25,6 +25,8 @@ On a deux syntaxes en asm :
 * At&t : instruction $0x1, %eax (source, destination)
 * Intel : instruction eax, 0x1  (destination, source)
 
+[Comprende l'assembleur](https://beta.hackndo.com/assembly-basics/)
+
 ## STRUCTURE 🦄
 
 ### Segements
@@ -55,10 +57,10 @@ section .text
 
 ### Registres
 
-Les **registres** sont des petits élements de stockage, utilisés lors d'un programme, ayants une fonction particulière.</br>
+Les **registres** sont des petits éléments de stockage, utilisés lors d'un programme, ayants une fonction particulière.</br>
 
-En c, faire un ```int a = 0; a = 1;``` veut dire mettre ```1``` dans la variable ```a```.
-En asm, cela revient a prendre une variable non initialisée, auparavant mettre une valeur dans un registre, puis mettre ce registre dans la variable.
+En c, faire un ```int a = 0; a = 1;``` veut dire mettre ```1``` dans la variable ```a```.</br>
+En asm, cela revient à prendre une variable non initialisée, auparavant mettre une valeur dans un registre, puis mettre ce registre dans la variable.
 
 **Shéma d'un registre**
 
@@ -67,34 +69,36 @@ En asm, cela revient a prendre une variable non initialisée, auparavant mettre 
 Tous les registres ont une fonction pré-définie :
 
 ```s
-# registres d'accumulation (ex : opérations mathématiques)
-ax → Eax (extended ax) → rax 
-bx → Ebx → rbx
-cx → Ecx → rcx
-dx → Edx → rdx
-
-# registres pour les chaines de caractères sources (rsi) et destination (rdi)
-si → Esi → rsi
-di → Edi → rdi
-
-# registres pour manipuler la stack 
-sp → Esp → rsp
-bp → Ebp → rbp
-
-# Autre
+ax → Eax (extended ax) → rax ; Accumulateur (ex : opérations mathématiques)
+bx → Ebx → rbx ; Base
+cx → Ecx → rcx ; Compteur
+dx → Edx → rdx ; Data
+si → Esi → rsi ; Source
+di → Edi → rdi ; Destination
+sp → Esp → rsp ; Stack pointeur
+bp → Ebp → rbp ; Stack base pointeur
 ip → Eip → rip
 ```
 
 ### Instructions
 
+Une instruction est exécutée lors de l'exécution. Une instruction x86 peut avoir de zéro à trois opérandes.</br>
+Voir la [liste complète des instructions x86](https://c9x.me/x86/)
+
+**Quelques instructions notables**
+
 mov : met une valeur dans un registre.
 db  : déclare un byte (octet).
 lea : met l'addresse d'une variable dans la destination.
 
-## LA STACK 🍔
+## LA STACK 👀
 
-
+[Comprende la stack](https://beta.hackndo.com/stack-introduction/)
 
 ## USEFUL LINKS 🤙🏼
 
-* [anselm](https://github.com/grumbach/libftASM)
+* Sum up in english by [anselm](https://github.com/grumbach/libftASM)
+* [Comprende la stack](https://beta.hackndo.com/stack-introduction/)
+* [Comprende l'assembleur](https://beta.hackndo.com/assembly-basics/)
+* Essaye le [Compiler explorer](https://godbolt.org/)
+* Voir la [liste complète des instructions x86](https://c9x.me/x86/)
