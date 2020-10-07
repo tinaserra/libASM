@@ -6,7 +6,7 @@ Writing a lib in x64 assembly (intel flavour)
 
 Sujet → [EN](https://github.com/tinaserra/libASM/blob/master/links/libasm_en.pdf) | [FR](https://github.com/tinaserra/libASM/blob/master/links/libasm_fr.pdf)
 
-### L'assembleur, c'est quoi?
+### L'assembleur, c'est quoi
 
 C'est un ensemble de langages de programmation qui sont spécifiques à l'architechture de notre processeur. On peut dire qu'il y a autant d'assembleur que d'architechtures.
 
@@ -14,7 +14,7 @@ C'est un ensemble de langages de programmation qui sont spécifiques à l'archit
 Expmples : mips - armv7 - x86 - x86-64 ou x64
 ```
 
-### Pourquoi apprendre l'assembleur en 2021?
+### Pourquoi apprendre l'assembleur en 2021
 
 Pour mieux connaitre son ordinateur et son foctionnement. Également pour reverse des programmes.
 
@@ -29,7 +29,7 @@ On a deux syntaxes en asm :
 
 ## STRUCTURE 🦄
 
-### Segements
+### 1. Segements
 
 Les **segements** sont des sortes de boites dans les quelles on va mettre des **valeurs** ou des **instructions**. Le programme nasm ira chercher dans ces segments les valers dont il connait la nature.
 
@@ -49,13 +49,13 @@ section .bss
 
 section .data
     hello db `hello world\n`
-    hello_len equ $-hello 
+    hello_len equ $-hello
 
 section .text
     global _start
 ```
 
-### Registres
+### 2. Registres
 
 Les **registres** sont des petits éléments de stockage, utilisés lors d'un programme, ayants une fonction particulière.</br>
 
@@ -64,23 +64,23 @@ En asm, cela revient à prendre une variable non initialisée, auparavant mettre
 
 #### Shéma d'un registre
 
-![register](./links/shema_rax.png)
+![Shéma registre asm](./links/shema_rax.png)
 
 Tous les registres ont une fonction pré-définie :
 
 ```s
 ax → Eax (extended ax) → rax ; Accumulateur (ex : opérations mathématiques)
 bx → Ebx → rbx ; Base
-cx → Ecx → rcx ; Compteur
+cx → Ecx → rcx ; Counter
 dx → Edx → rdx ; Data
 si → Esi → rsi ; Source
 di → Edi → rdi ; Destination
-sp → Esp → rsp ; Stack pointeur
-bp → Ebp → rbp ; Stack base pointeur
-ip → Eip → rip
+sp → Esp → rsp ; Stack Pointer
+bp → Ebp → rbp ; stack Base Pointer
+ip → Eip → rip ; Instruction Pointer
 ```
 
-### Instructions
+### 3. Instructions
 
 Une instruction est exécutée lors de l'exécution. Une instruction x86 peut avoir de zéro à trois opérandes.</br>
 Voir la [liste complète des instructions x86](https://c9x.me/x86/)
@@ -91,11 +91,11 @@ Voir la [liste complète des instructions x86](https://c9x.me/x86/)
 instruction destination, source, last
 ```
 
-|Instruction|Black Sheep Wall|
+|Instruction|Ce que fait l'instruction|
 | :--- | :--- |
 |```NOP```|L'instruction NOP à un octet est couramment utilisée pour aligner la mémoire pour accélérer le saut car il est plus rapide de sauter en utilisant des puissances de 2|
-|```push```|Met une **valeur** contenue dans un registre sur la stack et décrémente automatiquement ```rsp``` de **sizeof (valeur)**|
-|```pop```|Éjecte **valeur** de la stack dans un registre et incrémente automatiquement ```rsp``` de **sizeof (valeur)**|
+|```push```|Met une **valeur** contenue dans un registre sur la stack et décrémente automatiquement ```rsp``` de **sizeof(valeur)**|
+|```pop```|Éjecte **valeur** de la stack dans un registre et incrémente automatiquement ```rsp``` de **sizeof(valeur)**|
 |```syscall```|Fais de la puissante magie avec le kernel|
 |```call```|Met ```rip``` sur la stack et va a ```destination```|
 |```leave```|Libère le stack frame actuel. Déplace ```rbp``` vers ```rsp``` et fait apparaître ```rbp``` de la stack|
@@ -109,7 +109,19 @@ instruction destination, source, last
 
 ## LA STACK 👀
 
-[Comprende la stack](https://beta.hackndo.com/stack-introduction/)
+### C koi
+
+* La **stack** est une structure mémoire **constante**.
+* On peut **stocker des valeurs** sur la stack qui ne changent pas entre les exécutions (contrairement à d'autres structures comme la heap).
+* On la manipule grâce à ```rsp``` et ```rbp```.
+* De la même manière qu'on peut mettre des valeurs sur la stack on peut aussi les **enlever**.
+
+```rsp``` → pointe vers la derniere valeur empilée sur la stack (addr basses)</br>
+```rbp``` → pointe vers la base de la stack (addr hautes), sert de référence pour les fonctions</br>
+
+Il faut savoir que sur la stack tout est inversé,
+
+👑 [Devenir the ultimate master de la stack ou juste la comprendre](https://beta.hackndo.com/stack-introduction/)
 
 ## USEFUL LINKS 🤙🏼
 
