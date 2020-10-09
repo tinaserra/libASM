@@ -29,45 +29,45 @@
 BITS 64
 
 section .bss
-    a resb 256
+	a resb 256 ; char a[256]
 
 section .data
-    hello db `hello world\n`
-    hello_len equ $-hello 
+	hello db `hello world\n`
+	hello_len equ $-hello 
 
 section .text
-    global _start ; l'EP ici
+	global _start ; l'EP ici
 
 _start:
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, hello
-    mov rdx, hello_len
-    syscall
-    mov rax, 123
-    mov [a], rax
-    mov rax, 60
-    mov rdi, 0
-    syscall
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, hello
+	mov rdx, hello_len
+	syscall
+	mov rax, 123
+	mov [a], rax
+	mov rax, 60
+	mov rdi, 0
+	syscall
 
 
 
-;   -----------------------------------------###################################################------------------------------------------
+;	-----------------------------------------###################################################------------------------------------------
 
-;   # II - Arguments utilisateurs et manipulation de la stack
-;       Equivalent de argc et argv
+;	# II - Arguments utilisateurs et manipulation de la stack
+;		Equivalent de argc et argv
 
 ; [Registres]
-;       rsp -> pointe vers la derniere valeur empilée sur la stack (addr basses)
-;       rbp -> pointe vers la base de la stack (addr hautes), sert de référence pour les fonctions
-;       rip -> pointe vers la prochaine instruction
-;       r8 -> Registres généraux
-;       r9 -> Registres généraux
-;       r10 -> Registres généraux
-;       r11 -> Registres généraux
-;       r12 -> Registres généraux
-;       r13 -> Registres généraux
-;       r14 -> Registres généraux     
-;       r15 -> Registres généraux
+;		rsp -> pointe vers la derniere valeur empilée sur la stack (addr basses)
+;		rbp -> pointe vers la base de la stack (addr hautes), sert de référence pour les fonctions
+;		rip -> pointe vers la prochaine instruction
+;		r8 -> Registres généraux
+;		r9 -> Registres généraux
+;		r10 -> Registres généraux
+;		r11 -> Registres généraux
+;		r12 -> Registres généraux
+;		r13 -> Registres généraux
+;		r14 -> Registres généraux
+;		r15 -> Registres généraux
 
 ;   -----------------------------------------###################################################------------------------------------------
