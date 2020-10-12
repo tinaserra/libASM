@@ -107,7 +107,7 @@ instruction destination, source, last
 |```lea```|Charge l'adresse effective de ```source``` dans ```destination```. ```source``` est une adresse mémoire (partie offset) spécifiée avec l'un des modes d'adressage des processeurs, ```destination``` est un registre à usage général|
 |```jump```|Charge le ```destination``` dans ```rip```, ```destination``` spécifie l'adresse de l'instruction à laquelle le saut est effectué. ```destination``` peut être une valeur immédiate, un registre à usage général ou un emplacement mémoire|
 |```and```|Effectue l'opération suivante: ```destination = destination & source``` et définit quelques indicateurs|
-|```test```|Essentiellement une instruction ```&``` qui ne modifie pas ```destination```|
+|```test```|Essentiellement une instruction ```and``` qui ne modifie pas ```destination```|
 |```rep```|Répète les opérations de chaîne: répète une instruction de chaîne le nombre de fois spécifié dans le registre de comptage ```rcx```. ```rep``` (répéter), ```repe``` (répéter tant que ==), ```repne``` (répéter tant que !=), ```repz``` (répéter jusqu'à zéro ), et ```repnz``` (répéter tant que != 0)|
 
 ## LA STACK 👀
