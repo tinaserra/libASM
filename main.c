@@ -8,7 +8,10 @@
 
 int main(void)
 {
-    printf("%d\n", ft_strlen(""));
-    char    *str = "salut maman\n";
-    printf("ret: %zd\n", ft_write(1, 0, ft_strlen(str)));
+	char	*str;
+
+	printf("%d\n", ft_strlen(""));
+
+	str = "salut maman\n";
+	printf("ret: %zd\n", ft_write(1, 0, ft_strlen(str)));
 }
