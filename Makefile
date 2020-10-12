@@ -1,5 +1,7 @@
 SRC = 	ft_strlen.s \
-		ft_write.s
+		ft_strcpy.s \
+		ft_write.s \
+		ft_read.s
 
 MAIN = main.c
 
