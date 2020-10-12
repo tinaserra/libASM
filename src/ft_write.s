@@ -13,8 +13,8 @@ _ft_write:
 		push rbp ; retrouver la call stack / debugg le code
 		mov rbp, rsp
 
-		mov rbx, rdi
-		mov rcx, rsi
+		;mov rbx, rdi
+		;mov rcx, rsi
 		mov rax, MACH_SYSCALL(WRITE)
 		syscall
 		cmp rax, 0
@@ -26,7 +26,7 @@ null:
 		push rdi
 		call ___error
 		pop rdi
-		mov [rax], rdi
+		;mov [rax], rdi
 		mov rax, -1
 		ret
 
