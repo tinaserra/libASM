@@ -16,6 +16,8 @@ int main(void)
 	printf("[strlen]	%lu\n", strlen(str));
 	printf("[ft_strlen]	%d\n", ft_strlen(str));
 
+
+
 	printf("\n\n* FT_STRCPY ----------------------------------------------- *\n\n");
 	char	*src = "Ca marche ?";
 	// char	*src2 = "jcvlwrnvj  jnrwknvk   hsnkhkech s hr ih s";
@@ -26,6 +28,20 @@ int main(void)
 	printf("[strcpy]	%s\n", dst);
 	dst2 = ft_strcpy(dst2, src);
 	printf("[ft_strcpy]	%s\n", dst2);
+
+
+
+	printf("\n\n* FT_STRCMP ----------------------------------------------- *\n\n");
+
+	char* s1 = "abc";
+	char* s2 = "abc";
+
+	int ret = strcmp(s1, s2);
+	printf("[strcmp]	%d\n", ret);
+	int ret2 = ft_strcmp(s1, s2);
+	printf("[ft_strcmp]	%d\n", ret2);
+
+
 
 	// ft_write(1, "str\n", 4);
 	// ret_ft_write = ft_write(1, 0, 0);
@@ -52,20 +68,4 @@ int main(void)
 	// printf(" [ft_read] return = %zd\n", ft_read(fileread, sread, 50));
 	// printf(" [ft_read] content = %s\n", sread);
 	// close(fileread);
-
-	// printf("\n\n-----------------------------------------------------------\n");
-    // printf("| ft_write | Input = srcs/test.txt, Hello World, 11       |\n");
-    // printf("-----------------------------------------------------------\n\n");
-    
-    // int filewrite = open("srcs/testt.txt", O_RDWR);
-    // printf(" [ft_write] Output_01 = %d\n", filewrite);
-    // char swrite[11] = "Hello World";
-    // printf(" [ft_write] Output_02 = %zd\n", ft_write(filewrite, swrite, 11));
-    // close(filewrite);
-
-    // int filewrite2 = open("srcs/testt.txt", O_RDWR);
-    // printf(" [write] Output_01 = %d\n", filewrite2);
-    // char swrite2[11] = "Hello World";
-    // printf(" [write] Output_02 = %zd\n", write(filewrite2, swrite2, 11));
-    // close(filewrite2);
 }
